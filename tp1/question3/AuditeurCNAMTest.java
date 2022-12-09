@@ -24,6 +24,8 @@ package question3;
  *          engagements, et suivi d'un appel à tearDown(), qui les détruit.
  */
 public class AuditeurCNAMTest extends junit.framework.TestCase {
+    
+
     // Définissez ici les variables d'instance nécessaires à vos engagements;
     // Vous pouvez également les saisir automatiquement du présentoir
     // à l'aide du menu contextuel "Présentoir --> Engagements".
@@ -43,7 +45,7 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
      */
     protected void setUp() // throws java.lang.Exception
     {
-        // Initialisez ici vos engagements
+        
     }
 
     /**
@@ -122,4 +124,21 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
         assertEquals(" nom avec accent (é devient e) ? ", "chloe_c",
             auditeur1.login());
     }
+
+    public void test()
+    {
+        question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("hAYEK", "PIERRE", "test");
+        assertEquals("hayek_p", auditeur1.login());
+        question3.AuditeurCNAM auditeur2 = new question3.AuditeurCNAM("Ha-YEk", "pierre", "ok");
+        assertEquals("ha_yek_p", auditeur2.login());
+    }
+
+    public void test2()
+    {
+        question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("hàyèK", "Pierre", "p");
+        assertEquals("hayek_p", auditeur1.login());
+    }
 }
+
+
+

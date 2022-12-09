@@ -1,5 +1,6 @@
 package question3;
 
+import java.text.Normalizer;
 /**
  * NFP121 TpIntroduction, usage de BlueJ et du "Submitter".
  * 
@@ -26,6 +27,8 @@ public class AuditeurCNAM {
      * @param matricule
      *            sur la carte d'inscription, près de la photo
      */
+    
+    
     public AuditeurCNAM(String nom, String prenom, String matricule) {
         this.nom = nom;
         this.prenom = prenom;
@@ -44,8 +47,31 @@ public class AuditeurCNAM {
      * @return le login du Cnam simplifié, sans les adaptations dues aux
      *         homonymes...
      */
+    
     public String login() {
-        return "";// à compléter
+        String loginString = "";
+        
+        if(nom.length() >= 6){
+            loginString = nom.substring(0,6);
+        }else{
+            if(nom.length() > 0 && nom.length() < 6){
+                loginString = nom;
+            } 
+        }
+            
+        if(prenom.length() > 0){
+            loginString += "_"+prenom.charAt(0);
+        }
+        loginString = loginString.toLowerCase();
+        
+        loginString = loginString.replaceAll("-","_");
+        
+        loginString = Normalizer.normalize(loginString, Normalizer.Form.NFKD);
+        loginString = loginString.replaceAll("\\p{M}", "");  
+        
+        //test_nom_avec_accent();
+        
+        return loginString;// à compléter
     }
 
     /**
@@ -54,7 +80,7 @@ public class AuditeurCNAM {
      * @return son nom
      */
     public String nom() {
-        return null;// à compléter
+        return nom;// à compléter
     }
 
     /**
@@ -63,7 +89,7 @@ public class AuditeurCNAM {
      * @return son prénom
      */
     public String prenom() {
-        return null;// à compléter
+        return prenom;// à compléter
     }
 
     /**
@@ -72,7 +98,7 @@ public class AuditeurCNAM {
      * @return son matricule
      */
     public String matricule() {
-        return null;// à compléter
+        return matricule;// à compléter
     }
 
     /**

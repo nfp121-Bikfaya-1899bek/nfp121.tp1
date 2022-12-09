@@ -3,6 +3,8 @@ package question2;
 import question1.Circle;
 import question1.Square;
 import question1.Triangle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * This class represents a simple picture. You can draw the picture using the
@@ -19,7 +21,7 @@ public class Picture {
     private Square wall;
     private Square window;
     private Triangle roof;
-    private Circle sun;
+    private Circle sun,sun2;
 
     /**
      * Constructor for objects of class Picture
@@ -36,6 +38,7 @@ public class Picture {
         wall.moveVertical(80);
         wall.changeSize(100);
         wall.makeVisible();
+        
 
         window = new Square();
         window.changeColor("black");
@@ -50,12 +53,34 @@ public class Picture {
         roof.makeVisible();
 
         sun = new Circle();
-        sun.changeColor("yellow");
+        sun.changeColor("blue");
         sun.moveHorizontal(180);
         sun.moveVertical(-10);
         sun.changeSize(60);
         sun.makeVisible();
+        
+        sun2 = new Circle();
+        sun2.changeColor("yellow");
+        sun2.moveHorizontal(180);
+        sun2.moveVertical(20);
+        sun2.changeSize(40);
+        sun2.makeVisible();
+        
+        sunsetPosition();
+        
     }
+    
+    /** sunset **/       
+       public void sunsetPosition(){
+            Timer timer = new Timer();
+            timer.schedule(new TimerTask(){
+                @Override
+                public void run(){
+                    sun.slowMoveVertical(250);
+                    timer.cancel();
+                }
+            },2000,2000);
+        }
 
     /**
      * Change this picture to black/white display

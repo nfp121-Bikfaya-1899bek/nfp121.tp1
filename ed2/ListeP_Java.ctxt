@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=ListeP_Java
+comment1.params=
+comment1.target=java.lang.Object\ clone()
+comment10.params=
+comment10.target=java.util.Iterator\ iterator()
+comment11.params=
+comment11.target=java.lang.String\ toString()
+comment12.params=obj
+comment12.target=boolean\ equals(java.lang.Object)
+comment2.params=
+comment2.target=java.lang.Object\ car()
+comment3.params=
+comment3.target=void\ cdr()
+comment4.params=objet
+comment4.target=void\ cons(java.lang.Object)
+comment5.params=li
+comment5.target=void\ conc(ListePointInterface)
+comment6.params=
+comment6.target=void\ renverse()
+comment7.params=objet
+comment7.target=boolean\ membre(java.lang.Object)
+comment8.params=
+comment8.target=boolean\ listeVide()
+comment9.params=
+comment9.target=int\ longueur()
+numComments=13
